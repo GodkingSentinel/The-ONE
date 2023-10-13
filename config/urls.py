@@ -22,6 +22,10 @@ urlpatterns = [
     path(
         "users/",
         include("everycheese.users.urls", namespace="users"),
+        ),
+    path(
+        'cheeses/',
+        include('everycheese.cheeses.urls', namespace='cheeses')
     ),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
