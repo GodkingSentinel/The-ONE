@@ -20,7 +20,9 @@
             <td><a href="{% url 'cheeses:detail' cheese.slug %}">{{ cheese.name }}</a></td>
             <td>{{ cheese.country_of_origin.name }}</td>
             <!-- Add more columns if needed -->
-            <td><a </td>
+            <td><a href="{% url 'cheeses:delete' cheese.slug %}" class="btn btn-danger">Delete</a> |
+            <a href="{% url 'cheeses:update' cheese.slug %}" class="btn btn-danger">Update</a></td>
+            <td></td>
         </tr>
         {% endfor %}
     </tbody>

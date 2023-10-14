@@ -3,13 +3,15 @@ from django.views.generic import ListView, DetailView
 from .models import Cheese
 from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.urls import reverse_lazy
 
 from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
     UpdateView,
+    DeleteView
+    
 )
 
 class CheeseListView(ListView):
@@ -17,6 +19,7 @@ class CheeseListView(ListView):
 
 class CheeseDetailView(DetailView):
     model = Cheese
+
 
 class CheeseCreateView(LoginRequiredMixin, CreateView):
     model = Cheese
@@ -39,5 +42,13 @@ class CheeseUpdateView(LoginRequiredMixin, UpdateView):
         'country_of_origin']
     action = "Update"
 
+class CheeseDeleteView(LoginRequiredMixin, DeleteView):
+    model = Cheese
+    
+    # This works. Next try django loader for getting the .HTML page
+    template_name = '../templates/cheeses/cheese_confirm_delete.html'
 
+    success_url=reverse_lazy("cheeses:list")
+
+   
 

@@ -4,19 +4,19 @@ from . import views
 
 app_name = "cheeses"
 urlpatterns = [
+    
     path(
         route='',
         view=views.CheeseListView.as_view(),
         name='list'
-    ),
-
- path(
+ ),
+    path(
     route='add/',
     view=views.CheeseCreateView.as_view(),
     name= 'add'
 ),
 
-  path(
+    path(
         route='<slug:slug>/',
         view=views.CheeseDetailView.as_view(),
         name='detail'
@@ -27,5 +27,11 @@ urlpatterns = [
         view=views.CheeseUpdateView.as_view(),
         name='update'
 
+),
+    path(
+        route='<slug:slug>/delete/',
+        view=views.CheeseDeleteView.as_view(),
+        name='delete'
     ),
+
 ]
