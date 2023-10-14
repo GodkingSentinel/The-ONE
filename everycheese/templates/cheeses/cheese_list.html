@@ -4,12 +4,29 @@
 {% block content %}
 <h2>Cheese List</h2>
 
-<ul>
-{% for cheese in cheese_list %}
-<li><a href="{% url 'cheeses:detail' cheese.slug %}">{{ cheese.name }}</a></li>
-{% endfor %}
-</ul>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Cheese</th>
+            <th>Country</th>
+            <th>Command</th>
+            <th>Rating</th>
+            <!-- Add more header columns if needed -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for cheese in cheese_list %}
+        <tr>
+            <td><a href="{% url 'cheeses:detail' cheese.slug %}">{{ cheese.name }}</a></td>
+            <td>{{ cheese.country }}</td>
+            <!-- Add more columns if needed -->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
+
+    
 <hr/>
 <p>Don't see a cheese listed here?</p>
 <p>
