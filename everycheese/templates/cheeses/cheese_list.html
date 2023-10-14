@@ -18,8 +18,9 @@
         {% for cheese in cheese_list %}
         <tr>
             <td><a href="{% url 'cheeses:detail' cheese.slug %}">{{ cheese.name }}</a></td>
-            <td>{{ cheese.country }}</td>
+            <td>{{ cheese.country_of_origin.name }}</td>
             <!-- Add more columns if needed -->
+            <td><a </td>
         </tr>
         {% endfor %}
     </tbody>
