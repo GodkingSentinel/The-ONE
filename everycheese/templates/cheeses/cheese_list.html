@@ -22,9 +22,10 @@
             <!-- Add more columns if needed -->
             <td><a href="{% url 'cheeses:delete' cheese.slug %}" class="btn btn-danger">Delete</a> |
             <a href="{% url 'cheeses:update' cheese.slug %}" class="btn btn-danger">Update</a></td>
-            <td></td>
-        </tr>
+            <td><a href="{% url 'cheeses:rate' cheese.slug %}">5</a></td>
         {% endfor %}
+        
+        
     </tbody>
 </table>
 

@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import include, path
 from . import views
 
 
@@ -34,4 +34,10 @@ urlpatterns = [
         name='delete'
     ),
 
-]
+    path(
+        route='<slug:slug>/rate/',
+        view=views.CheeseRatingView.as_view(),
+        name='rate'
+    ),
+
+]    

@@ -4,13 +4,14 @@ from .models import Cheese
 from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-
+from django.db import models
+from django.views.generic import FormView
 from django.views.generic import (
     ListView,
     DetailView,
     CreateView,
     UpdateView,
-    DeleteView
+    DeleteView,
     
 )
 
@@ -39,7 +40,8 @@ class CheeseUpdateView(LoginRequiredMixin, UpdateView):
         'name',
         'description',
         'firmness',
-        'country_of_origin']
+        'country_of_origin',
+        ]
     action = "Update"
 
 class CheeseDeleteView(LoginRequiredMixin, DeleteView):
@@ -50,5 +52,8 @@ class CheeseDeleteView(LoginRequiredMixin, DeleteView):
 
     success_url=reverse_lazy("cheeses:list")
 
-   
+class CheeseRatingView(LoginRequiredMixin, FormView):
+    model = Cheese
+    
+
 

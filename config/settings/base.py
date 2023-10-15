@@ -69,6 +69,9 @@ DJANGO_APPS = [
     # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
     "django.forms",
+    'star_ratings',
+    
+    
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -76,6 +79,7 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "django_countries", # CountryField
+    
 ]
 
 LOCAL_APPS = [

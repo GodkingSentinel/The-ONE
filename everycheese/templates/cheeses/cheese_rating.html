@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Rate This Cheese</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Rating</button>
+  </form>
+  <a href="{% url 'cheeses:cheese_list' %}">Back to Cheese List</a>
+{% endblock content %}
+
